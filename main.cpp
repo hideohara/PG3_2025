@@ -1,17 +1,14 @@
-#include <iostream>
-#include <windows.h>
+#include <stdio.h>
+#include "MyClass.h"
+
 
 int main()
 {
-	//SetConsoleOutputCP(65001);
-	char str[] = "ソ";
-	printf("%s",str);
+	MyClass* myClass = new MyClass();
+
+	myClass->Func();
+
 	return 0;
 }
-
-
-
-
-
 
 
