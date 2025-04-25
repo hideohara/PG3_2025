@@ -1,13 +1,14 @@
 #include <stdio.h>
-#include "MyClass.h"
+#include "Enemy.h"
 
 
 int main()
 {
-	MyClass* myClass = new MyClass();
+	Enemy* enemy = new Enemy();
 
-	myClass->Func();
-
+	for (int i = 0; i < 3;  i++) {
+		enemy->Update();
+	}
 	return 0;
 }
 
