@@ -1,17 +1,28 @@
-#include <iostream>
-#include <windows.h>
+#include "DeathEater.h"
+#include "Dementor.h"
+#include "Load.h"
 
-int main()
-{
-	//SetConsoleOutputCP(65001);
-	char str[] = "ソ";
-	printf("%s",str);
-	return 0;
+int main() {
+    DeathEater* death_eaters[4];
+
+    // 生成フェーズ
+    for (int i = 0; i < 4; i++) {
+       if (i < 1)
+            death_eaters[i] = new Dementor;
+       else
+            death_eaters[i] = new Load;
+    }
+
+    // 攻撃フェーズ
+    for (int i = 0; i < 4; i++) {
+        death_eaters[i]->Attack();
+    }
+
+    // 破棄フェーズ
+    for (int i = 0; i < 4; i++) {
+        delete death_eaters[i];
+    }
+
+    return 0;
 }
-
-
-
-
-
-
 
