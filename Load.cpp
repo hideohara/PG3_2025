@@ -13,5 +13,5 @@ Load::~Load()
 
 void Load::Attack()
 {
-	printf("%sをたおした\n", name);
+	printf("%sの「お辞儀をするのだ」\n", name);
 }

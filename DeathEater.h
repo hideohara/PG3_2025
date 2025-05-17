@@ -9,7 +9,8 @@ public: /* メンバ関数 */
 	// コンストラクタ（宣言）
 	DeathEater();
 	// デストラクタ（宣言）
-	virtual ~DeathEater();
+	 virtual ~DeathEater();
+	//~DeathEater();
 	// 攻撃（宣言）
 	virtual void Attack();
 

@@ -13,5 +13,5 @@ Dementor::~Dementor()
 
 void Dementor::Attack()
 {
-	printf("%sの『お辞儀を　するのだ！』\n", name);
+	printf("%sの吸魂鬼のキス\n", name);
 }
