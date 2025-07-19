@@ -1,17 +1,26 @@
-#include <iostream>
-//#include <windows.h>
+#include <stdio.h>
+#include <thread>
 
-int main()
-{
-	//SetConsoleOutputCP(65001);
-	char str[] = "ソ";
-	printf("%s",str);
-	return 0;
+// using namespace std;
+
+
+void Thread1() {
+	printf("THREAD1\n");
+}
+
+void Thread2(int a) {
+	printf("THREAD2\n");
+	printf("%d\n", a);
 }
 
 
+int main(int argc, char const* argv[]) {
+
+	std::thread thread1(Thread1);
+	thread1.join();
+	std::thread thread2(Thread2, 3);
+	thread2.join();
 
 
-
-
-
+	return 0;
+}
