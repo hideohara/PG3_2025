@@ -5,27 +5,10 @@
 //コピー時間計算出力
 void measureCopyTime(const std::string& str) {
 
-    //開始
-    //auto start = std::chrono::high_resolution_clock::now();
-    auto start = std::chrono::system_clock::now();
-
-
-    //内容コピー
-    std::string copy = str;
-
-    //終了
-    //auto end = std::chrono::high_resolution_clock::now();
-    auto end = std::chrono::system_clock::now();
-
-    //時間計算
-    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-
-    //出力
-    std::cout << "コピー： " << duration << "μs" << std::endl;
 }
 
 //移動時間計算＋出力
-void measureMoveTime(std::string&& str) {
+void measureMoveTime(const std::string& str) {
 
     //開始
     auto start = std::chrono::high_resolution_clock::now();
@@ -50,11 +33,30 @@ int main() {
 
     std::cout << "1000000文字を移動とコピーで比較" << std::endl;
 
-    //コピー
-    measureCopyTime(a);
-
-    //移動
-    measureMoveTime(std::move(a));
+    {
+        //開始
+        auto start = std::chrono::high_resolution_clock::now();
+        //内容コピー
+        std::string copy = a;
+        //終了
+        auto end = std::chrono::high_resolution_clock::now();
+        //時間計算
+        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+        //出力
+        std::cout << "コピー： " << duration << "μs" << std::endl;
+    }
+    {
+        //開始
+        auto start = std::chrono::high_resolution_clock::now();
+        //代入
+        std::string copy = std::move(a);
+        //終了
+        auto end = std::chrono::high_resolution_clock::now();
+        //時間計算
+        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+        //出力
+        std::cout << "コピー： " << duration << "μs" << std::endl;
+    }
 
     return 0;
 }
